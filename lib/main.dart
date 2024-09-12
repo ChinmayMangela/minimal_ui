@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:minimal_ui/features/authentication/presentation/pages/auth_gate.dart';
 import 'package:minimal_ui/features/authentication/presentation/pages/login_or_register.dart';
 import 'package:minimal_ui/theme/app_theme.dart';
 
@@ -10,6 +11,7 @@ void main() async {
 }
 
 final messengerKey = GlobalKey<ScaffoldMessengerState>();
+final navigatorKey = GlobalKey<NavigatorState>();
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -18,8 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       scaffoldMessengerKey: messengerKey,
+      navigatorKey: navigatorKey,
       theme: AppTheme.lightTheme,
-      home: const LoginOrRegister(),
+      home: const AuthGate(),
     );
   }
 }

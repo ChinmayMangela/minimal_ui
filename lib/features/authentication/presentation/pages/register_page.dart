@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:minimal_ui/features/authentication/presentation/widgets/my_button.dart';
 import 'package:minimal_ui/features/authentication/presentation/widgets/my_text_field.dart';
 import 'package:minimal_ui/features/authentication/presentation/widgets/social_buttons_row.dart';
+import 'package:minimal_ui/main.dart';
 import 'package:minimal_ui/services/authentication/authentication_service.dart';
 import 'package:minimal_ui/utils/utils.dart';
 
@@ -48,13 +49,14 @@ class _RegisterPageState extends State<RegisterPage> {
       return;
     }
 
-
-    if(email.isEmpty && password.isEmpty && confirmPassword.isEmpty) {
+    if (email.isEmpty || password.isEmpty || confirmPassword.isEmpty) {
       Utils.displaySnackBar('Enter your credentials');
       return;
     }
 
+    Utils.showCircularProgressIndicator(context);
     await _authenticationService.createUserWithEmail(email, password);
+    navigatorKey.currentState?.popUntil((route) => route.isFirst);
   }
 
   @override

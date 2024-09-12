@@ -28,6 +28,7 @@ class MyTextField extends StatelessWidget {
       borderRadius: BorderRadius.circular(4),
     );
     return TextField(
+      controller: controller,
       obscureText: obscureText,
       decoration: InputDecoration(
           suffixIcon: isPasswordField

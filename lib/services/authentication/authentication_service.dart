@@ -8,6 +8,7 @@ class AuthenticationService {
   Future<UserCredential?> logInWithEmail(String email, String password) async {
     try {
       final user = await _firebaseAuth.signInWithEmailAndPassword(email: email, password: password);
+      print('Success');
       return user;
     } on FirebaseAuthException catch (e) {
       Utils.displaySnackBar(e.message);
@@ -23,5 +24,9 @@ class AuthenticationService {
       Utils.displaySnackBar(e.message);
     }
     return null;
+  }
+
+  Future<void> signOut() async {
+    await _firebaseAuth.signOut();
   }
 }
