@@ -35,8 +35,9 @@ class _LogInPageState extends State<LogInPage> {
     final email = _emailController.text.trim();
     final password = _passwordController.text.trim();
 
-    if(email.isEmpty && password.isEmpty) {
+    if(email.isEmpty || password.isEmpty) {
       Utils.displaySnackBar('Enter your credentials');
+      return;
     }
 
     Utils.showCircularProgressIndicator(context);

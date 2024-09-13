@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal_ui/features/authentication/presentation/pages/login_or_register.dart';
-import 'package:minimal_ui/features/home/presentation/pages/home_page.dart';
+import 'package:minimal_ui/features/authentication/presentation/pages/verify_email_page.dart';
 import 'package:minimal_ui/tabs.dart';
 
 class AuthGate extends StatelessWidget {
@@ -15,7 +15,7 @@ class AuthGate extends StatelessWidget {
           child: CircularProgressIndicator(),
         );
       } else if (snapshot.hasData) {
-        return const Tabs();
+        return const VerifyEmailPage();
       } else {
         return const LoginOrRegister();
       }
