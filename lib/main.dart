@@ -1,7 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:minimal_ui/features/authentication/presentation/pages/auth_gate.dart';
-import 'package:minimal_ui/features/authentication/presentation/pages/login_or_register.dart';
 import 'package:minimal_ui/theme/app_theme.dart';
 
 void main() async {
